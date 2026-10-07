@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhani Loan - Instant Personal, Business & Home Loans</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dhani: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            dark: '#0f172a',
+                            accent: '#0284c7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #064e3b 50%, #0f172a 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #16a34a;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(22, 163, 74, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-dhani-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-dhani-800 text-white text-xs md:text-sm py-2 px-4 text-center font-medium flex justify-between items-center max-w-7xl mx-auto rounded-b-lg">
+        <div class="flex items-center gap-2 mx-auto sm:mx-0">
+            <span class="bg-emerald-500 text-xs px-2 py-0.5 rounded font-bold animate-pulse">SPECIAL OFFER</span>
+            <span>Lowest Interest Rates starting at 7.5% p.a. | Zero Processing Fee on Select Loans!</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-4">
+            <a href="tel:9339769288" class="hover:text-emerald-300 transition flex items-center gap-1">
+                <i class="fa-solid fa-phone text-emerald-400"></i> 9339769288
+            </a>
+            <span>|</span>
+            <span class="text-slate-300">Mon-Sat: 9:00 AM - 7:00 PM</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2 group">
+                <div class="w-11 h-11 bg-gradient-to-tr from-dhani-600 to-emerald-400 rounded-xl flex items-center justify-center text-white shadow-lg shadow-dhani-500/30 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-indian-rupee-sign text-2xl font-bold"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight font-heading text-slate-900">dhani<span class="text-dhani-600">Loan</span></span>
+                    <span class="block text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">Financial Freedom</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+                <a href="#home" class="hover:text-dhani-600 transition">Home</a>
+                <a href="#loans" class="hover:text-dhani-600 transition">Loans & Rates</a>
+                <a href="#emi-calculator" class="hover:text-dhani-600 transition">EMI Calculator</a>
+                <a href="#credit-check" class="hover:text-dhani-600 transition">Credit Score Check</a>
+                <a href="#about" class="hover:text-dhani-600 transition">About Us</a>
+                <a href="#contact" class="hover:text-dhani-600 transition">Contact Us</a>
+            </div>
+
+            <!-- Header CTA & Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="tel:9339769288" class="bg-gradient-to-r from-dhani-600 to-emerald-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:from-dhani-700 hover:to-emerald-700 transition flex items-center gap-2 group text-sm sm:text-base">
+                    <i class="fa-solid fa-phone-volume group-hover:animate-bounce"></i>
+                    <span>Call Now: 9339769288</span>
+                </a>
+
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-600 hover:text-dhani-600 text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-medium text-slate-700">
+            <a href="#home" class="block hover:text-dhani-600 py-1">Home</a>
+            <a href="#loans" class="block hover:text-dhani-600 py-1">Loans & Rates</a>
+            <a href="#emi-calculator" class="block hover:text-dhani-600 py-1">EMI Calculator</a>
+            <a href="#credit-check" class="block hover:text-dhani-600 py-1">Credit Score Check</a>
+            <a href="#about" class="block hover:text-dhani-600 py-1">About Us</a>
+            <a href="#contact" class="block hover:text-dhani-600 py-1">Contact Us</a>
+            <div class="pt-2 border-t border-slate-100">
+                <a href="tel:9339769288" class="block text-center bg-dhani-600 text-white py-2.5 rounded-lg font-bold">
+                    <i class="fa-solid fa-phone mr-2"></i> 9339769288
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="gradient-bg text-white relative overflow-hidden py-16 lg:py-24">
+        <!-- Background decorative blobs -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-dhani-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-300 text-sm font-semibold backdrop-blur-md border border-white/10">
+                        <i class="fa-solid fa-bolt text-yellow-400"></i>
+                        <span>Instant Approval in 30 Minutes*</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading leading-tight">
+                        Apne Sapno Ko De Nayi Udaan With <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">Dhani Loan</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0">
+                        Get instant Personal, Business, Home, Car, and Gold loans at minimal documentation and low interest rates starting from 7.5% p.a.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 text-left">
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3">
+                            <i class="fa-solid fa-shield-halved text-2xl text-emerald-400"></i>
+                            <div>
+                                <h4 class="text-xs text-slate-400">Process</h4>
+                                <p class="text-sm font-bold">100% Paperless</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3">
+                            <i class="fa-solid fa-percent text-2xl text-emerald-400"></i>
+                            <div>
+                                <h4 class="text-xs text-slate-400">Interest From</h4>
+                                <p class="text-sm font-bold">7.5% P.A.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3 col-span-2 sm:col-span-1">
+                            <i class="fa-solid fa-clock-rotate-left text-2xl text-emerald-400"></i>
+                            <div>
+                                <h4 class="text-xs text-slate-400">Dispersal</h4>
+                                <p class="text-sm font-bold">Within 24 Hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Quick Apply Form -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900">Instant Loan Application</h3>
+                            <p class="text-slate-500 text-xs mt-1">Fill out the quick form & get instant pre-approval</p>
+                        </div>
+
+                        <form id="heroQuickForm" onsubmit="handleApplySubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Full Name (Pura Nam)</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-400"></i>
+                                    <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 focus:border-transparent outline-none text-sm transition">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Mobile Number (Phone No.)</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-phone absolute left-3.5 top-3.5 text-slate-400"></i>
+                                    <input type="tel" required pattern="[0-9]{10}" maxlength="10" placeholder="10 Digit Mobile Number" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 focus:border-transparent outline-none text-sm transition">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Loan Type</label>
+                                    <select required class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 focus:border-transparent outline-none text-sm transition bg-white">
+                                        <option value="">Select Type</option>
+                                        <option value="Personal Loan">Personal Loan</option>
+                                        <option value="Business Loan">Business Loan</option>
+                                        <option value="Home Loan">Home Loan</option>
+                                        <option value="Car Loan">Car Loan</option>
+                                        <option value="Gold Loan">Gold Loan</option>
+                                        <option value="Property Loan">Property Loan</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Amount (₹)</label>
+                                    <input type="number" required placeholder="e.g. 200000" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 focus:border-transparent outline-none text-sm transition">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-dhani-600 hover:bg-dhani-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-dhani-600/30 transition transform hover:-translate-y-0.5 active:translate-y-0 text-base">
+                                Apply Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+
+                            <p class="text-[11px] text-center text-slate-400">
+                                <i class="fa-solid fa-lock mr-1"></i> Your data is 100% safe & encrypted
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="loans" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dhani-600 font-bold uppercase tracking-wider text-sm">Loan Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-1">Our Loan Offerings & Interest Rates</h2>
+                <p class="text-slate-600 mt-3">Choose from our tailored loan products with low interest rates, flexible tenure options, and instant approvals.</p>
+            </div>
+
+            <!-- Grid of 6 Loans -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Business Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-700 font-bold text-xs px-3 py-1 rounded-full">ROI: 11.5% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Business Loan</h3>
+                        <p class="text-slate-500 text-sm mb-4">Expand your business operations, buy machinery, or manage working capital hassle-free.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Up to ₹50 Lakhs collateral-free</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Flexible repayment (12 to 60 Months)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Minimal business documentation</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Business Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Business Loan</button>
+                </div>
+
+                <!-- Home Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-emerald-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 font-bold text-xs px-3 py-1 rounded-full">ROI: 8.4% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Home Loan</h3>
+                        <p class="text-slate-500 text-sm mb-4">Turn your dream home into reality with low interest rate mortgages & easy monthly EMIs.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Up to 90% property value financing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Extended tenure up to 30 Years</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Easy home balance transfer options</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Home Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Home Loan</button>
+                </div>
+
+                <!-- Personal Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-purple-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <span class="bg-purple-100 text-purple-700 font-bold text-xs px-3 py-1 rounded-full">ROI: 10.25% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Personal Loan</h3>
+                        <p class="text-slate-500 text-sm mb-4">Instant cash for medical emergencies, travel, weddings, or personal expenses with zero collateral.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Instant disbursement to bank account</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Loan amount up to ₹15 Lakhs</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> 100% online processing</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Personal Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Personal Loan</button>
+                </div>
+
+                <!-- Car Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-amber-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-car"></i>
+                            </div>
+                            <span class="bg-amber-100 text-amber-700 font-bold text-xs px-3 py-1 rounded-full">ROI: 8.75% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Car Loan</h3>
+                        <p class="text-slate-500 text-sm mb-4">Drive home your dream car today with attractive car financing schemes & instant sanction.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Up to 100% on-road funding</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> New & pre-owned car loans</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Flexible repayment up to 7 years</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Car Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Car Loan</button>
+                </div>
+
+                <!-- Gold Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-yellow-500 group-hover:text-white transition">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <span class="bg-yellow-100 text-yellow-800 font-bold text-xs px-3 py-1 rounded-full">ROI: 7.5% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Gold Loan</h3>
+                        <p class="text-slate-500 text-sm mb-4">Unlock the power of your idle gold ornaments with maximum LTV value and ultra-fast cash.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Highest per gram loan value</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Safe vault storage with full insurance</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Express 15-minute disbursement</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Gold Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Gold Loan</button>
+                </div>
+
+                <!-- Property Loan -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-teal-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <span class="bg-teal-100 text-teal-700 font-bold text-xs px-3 py-1 rounded-full">ROI: 9.5% p.a.</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 mb-2">Property Loan (LAP)</h3>
+                        <p class="text-slate-500 text-sm mb-4">Pledge residential or commercial property to get high value loans for personal or business needs.</p>
+                        <ul class="space-y-2 text-xs text-slate-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> High loan limits up to ₹5 Crores</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Tenure up to 15 Years</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-dhani-600"></i> Continued use of property</li>
+                        </ul>
+                    </div>
+                    <button onclick="openApplyModal('Property Loan')" class="w-full py-2.5 border-2 border-dhani-600 text-dhani-600 font-bold rounded-xl hover:bg-dhani-600 hover:text-white transition text-sm">Apply for Property Loan</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="emi-calculator" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dhani-600 font-bold uppercase tracking-wider text-sm">Planning Tools</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-1">Smart EMI Calculator</h2>
+                <p class="text-slate-600 mt-3">Calculate your monthly installments & plan your finances before applying for a loan.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200/80 grid lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Controls Column -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Loan Amount Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-bold text-slate-700">Loan Amount (₹)</label>
+                            <input type="text" id="calcAmountInput" value="₹ 500,000" class="w-36 text-right font-bold text-dhani-700 bg-white border border-slate-300 rounded-lg py-1 px-3 text-sm focus:outline-none" readonly>
+                        </div>
+                        <input type="range" id="calcAmount" min="10000" max="5000000" step="10000" value="500000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer range-slider accent-dhani-600">
+                        <div class="flex justify-between text-xs text-slate-400 mt-1">
+                            <span>₹ 10k</span>
+                            <span>₹ 25 Lakhs</span>
+                            <span>₹ 50 Lakhs</span>
+                        </div>
+                    </div>
+
+                    <!-- Interest Rate Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-bold text-slate-700">Interest Rate (% p.a.)</label>
+                            <input type="text" id="calcRateInput" value="10.5%" class="w-24 text-right font-bold text-dhani-700 bg-white border border-slate-300 rounded-lg py-1 px-3 text-sm focus:outline-none" readonly>
+                        </div>
+                        <input type="range" id="calcRate" min="7.0" max="24.0" step="0.25" value="10.5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer range-slider accent-dhani-600">
+                        <div class="flex justify-between text-xs text-slate-400 mt-1">
+                            <span>7.0%</span>
+                            <span>15.0%</span>
+                            <span>24.0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Tenure Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-bold text-slate-700">Loan Tenure (Years)</label>
+                            <input type="text" id="calcTenureInput" value="3 Years (36 Mo)" class="w-36 text-right font-bold text-dhani-700 bg-white border border-slate-300 rounded-lg py-1 px-3 text-sm focus:outline-none" readonly>
+                        </div>
+                        <input type="range" id="calcTenure" min="1" max="20" step="1" value="3" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer range-slider accent-dhani-600">
+                        <div class="flex justify-between text-xs text-slate-400 mt-1">
+                            <span>1 Year</span>
+                            <span>10 Years</span>
+                            <span>20 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Box Column -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-dhani-900 text-white p-8 rounded-2xl shadow-xl space-y-6 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-emerald-400 font-bold mb-1">Monthly Installment</h4>
+                        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-emerald-400" id="resEmi">₹ 16,252</div>
+                        <p class="text-xs text-slate-400 mt-1">Payable every month for <span id="resTenureText">36</span> months</p>
+                    </div>
+
+                    <div class="space-y-3 pt-4 border-t border-slate-700 text-sm">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Principal Amount:</span>
+                            <span class="font-bold text-white" id="resPrincipal">₹ 500,000</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Total Interest Payable:</span>
+                            <span class="font-bold text-amber-400" id="resInterest">₹ 85,072</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300 pt-2 border-t border-slate-700 font-bold text-base">
+                            <span>Total Amount Payable:</span>
+                            <span class="text-white" id="resTotal">₹ 585,072</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Bar Visual -->
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1 flex justify-between">
+                            <span>Principal vs Interest Ratio</span>
+                            <span id="resRatio">85% / 15%</span>
+                        </div>
+                        <div class="w-full h-3 bg-amber-400 rounded-full overflow-hidden flex">
+                            <div id="barPrincipal" class="h-full bg-emerald-500 transition-all duration-300" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <button onclick="openApplyModal('Calculated EMI Loan')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold py-3 rounded-xl transition shadow-lg text-center">
+                        Apply For This Loan Amount
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="credit-check" class="py-20 gradient-bg text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/30">CREDIT CHECK SUBIDHA</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Free Instant Credit Score Check</h2>
+                    <p class="text-slate-300">Apna CIBIL Credit Score bilkul free me check karein. High credit score wale customers ko Dhani Loan par special low interest rates pre-approve hote hain.</p>
+                    
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> No impact on your official credit rating</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Get personalized pre-approved loan offers</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Fast, secure & 100% confidential</li>
+                    </ul>
+                </div>
+
+                <!-- Credit Check Box -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                        <div id="creditFormContainer">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-center">Check Your CIBIL Score Now</h3>
+                            <form id="creditScoreForm" onsubmit="calculateCreditScore(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">PAN Card Number</label>
+                                    <input type="text" required maxlength="10" placeholder="ABCDE1234F" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 uppercase text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Mobile Number (Linked with Aadhaar)</label>
+                                    <input type="tel" required pattern="[0-9]{10}" maxlength="10" placeholder="9876543210" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Full Name as per PAN</label>
+                                    <input type="text" required placeholder="Full Name" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-dhani-600 text-sm">
+                                </div>
+
+                                <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-sm">
+                                    Get Free Credit Report <i class="fa-solid fa-gauge-high ml-2 text-emerald-400"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Animated Score Result Display (Hidden initially) -->
+                        <div id="creditResultContainer" class="hidden text-center py-6">
+                            <div class="w-32 h-32 rounded-full border-8 border-emerald-500 border-t-slate-200 mx-auto flex items-center justify-center animate-spin-slow mb-4 shadow-lg">
+                                <div>
+                                    <span id="scoreValue" class="text-4xl font-extrabold font-heading text-emerald-600">785</span>
+                                    <span class="block text-[10px] text-slate-400 font-bold uppercase">Excellent</span>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900">Congratulations! 🎉</h4>
+                            <p class="text-xs text-slate-500 mt-1">You are pre-approved for up to <span class="font-bold text-dhani-600">₹10,000,000</span> Personal / Business Loan at lowest rates!</p>
+
+                            <button onclick="openApplyModal('Pre-Approved Credit Check Loan')" class="mt-6 w-full bg-dhani-600 hover:bg-dhani-700 text-white font-bold py-3 rounded-xl transition text-sm">
+                                Claim Pre-Approved Offer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dhani-600 font-bold uppercase tracking-wider text-sm">Why Dhani Loan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-1">Sabse Fast, Sabse Bharosemand</h2>
+                <p class="text-slate-600 mt-3">We eliminate traditional banking hassle with transparent processes & instant online processing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-emerald-100 text-dhani-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-2">100% Paperless</h3>
+                    <p class="text-slate-500 text-xs">Upload digital KYC documents online without visiting any physical branch.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-2">Instant Dispersal</h3>
+                    <p class="text-slate-500 text-xs">Approved loan amount is credited straight to your bank account within hours.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-2">Flexible Tenure</h3>
+                    <p class="text-slate-500 text-xs">Choose tenure options ranging from 12 months up to 30 years as per budget.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-2">24x7 Customer Support</h3>
+                    <p class="text-slate-500 text-xs">Our dedicated team is always ready to assist you on call: <strong class="text-slate-800">9339769288</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dhani-600 font-bold uppercase tracking-wider text-sm">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-1">Loved by 10 Lakh+ Happy Customers</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60">
+                    <div class="flex text-amber-400 gap-1 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">"Mujhe business expand karne ke liye urgent 5 Lakh ka loan chahiye tha. Dhani loan team ne sirf 24 ghante me loan pass kar diya!"</p>
+                    <div class="font-bold text-slate-900 text-sm">Amit Verma</div>
+                    <div class="text-slate-400 text-xs">New Delhi</div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60">
+                    <div class="flex text-amber-400 gap-1 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">"Home loan interest rate was lowest compared to other banks. The paperless verification was smooth & simple."</p>
+                    <div class="font-bold text-slate-900 text-sm">Priya Sharma</div>
+                    <div class="text-slate-400 text-xs">Connaught Place, Delhi</div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60">
+                    <div class="flex text-amber-400 gap-1 text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">"Gold loan instant service is awesome. Got money credited directly to my bank in 15 minutes. Great customer support on call."</p>
+                    <div class="font-bold text-slate-900 text-sm">Vikram Malhotra</div>
+                    <div class="text-slate-400 text-xs">South Delhi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+                
+                <!-- Column 1: Brand info -->
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="#home" class="flex items-center gap-2">
+                        <div class="w-10 h-10 bg-dhani-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <span class="text-2xl font-extrabold font-heading text-white">dhani<span class="text-dhani-500">Loan</span></span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Dhani Loan is India's leading digital financial portal offering instant personal, business, home, gold, and car loan solutions with minimal documentation.
+                    </p>
+                    <div class="flex gap-3 text-lg pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-dhani-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-dhani-600 hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-dhani-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-dhani-600 hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-white font-bold font-heading text-base border-b border-slate-800 pb-2">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-dhani-500 transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-dhani-500 transition">About Us</a></li>
+                        <li><a href="#loans" class="hover:text-dhani-500 transition">Loan Products</a></li>
+                        <li><a href="#emi-calculator" class="hover:text-dhani-500 transition">EMI Calculator</a></li>
+                        <li><a href="#credit-check" class="hover:text-dhani-500 transition">Credit Score Check</a></li>
+                        <li><a href="#contact" class="hover:text-dhani-500 transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact & Delhi Address -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold font-heading text-base border-b border-slate-800 pb-2">Delhi Office Address</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-dhani-500 mt-1"></i>
+                            <span>Dhani Services Limited, 4th Floor, Statesman House, Barakhamba Road, Connaught Place, New Delhi - 110001, India.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-dhani-500"></i>
+                            <a href="tel:9339769288" class="text-white font-bold hover:text-dhani-500 transition">+91 9339769288</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-dhani-500"></i>
+                            <a href="mailto:support@dhaniloan.com" class="hover:text-dhani-500 transition">support@dhaniloan.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Embedded Google Map -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-bold font-heading text-base border-b border-slate-800 pb-2 mb-3">Our Location</h4>
+                    <div class="rounded-xl overflow-hidden border border-slate-800 h-40 shadow-inner">
+                        <iframe 
+                            title="Delhi Office Location"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.112347209772!2d77.216721!3d28.628902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e4739382f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Disclaimer & Copyright -->
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 space-y-2">
+                <p>Disclaimer: Interest rates and loan limits are subject to credit verification and approval. Terms and conditions apply.</p>
+                <p>© <span id="currentYear"></span> Dhani Loan Services Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Apply Modal -->
+    <div id="applyModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeApplyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                &times;
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-dhani-100 text-dhani-600 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h3 class="text-xl font-bold font-heading text-slate-900">Apply for <span id="modalLoanTypeTitle" class="text-dhani-600">Loan</span></h3>
+                <p class="text-xs text-slate-500">Fill details & our relationship manager will call you within 15 minutes.</p>
+            </div>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Enter Name" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-dhani-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Phone Number</label>
+                    <input type="tel" required pattern="[0-9]{10}" maxlength="10" placeholder="10 Digit Number" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-dhani-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">City / Location</label>
+                    <input type="text" required placeholder="e.g. New Delhi" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-dhani-600 outline-none">
+                </div>
+
+                <button type="submit" class="w-full bg-dhani-600 hover:bg-dhani-700 text-white font-bold py-3 rounded-xl transition text-sm">
+                    Submit Loan Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer when link clicked
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // EMI Calculator Script
+        const calcAmount = document.getElementById('calcAmount');
+        const calcRate = document.getElementById('calcRate');
+        const calcTenure = document.getElementById('calcTenure');
+
+        const calcAmountInput = document.getElementById('calcAmountInput');
+        const calcRateInput = document.getElementById('calcRateInput');
+        const calcTenureInput = document.getElementById('calcTenureInput');
+
+        const resEmi = document.getElementById('resEmi');
+        const resPrincipal = document.getElementById('resPrincipal');
+        const resInterest = document.getElementById('resInterest');
+        const resTotal = document.getElementById('resTotal');
+        const resTenureText = document.getElementById('resTenureText');
+        const barPrincipal = document.getElementById('barPrincipal');
+        const resRatio = document.getElementById('resRatio');
+
+        function formatCurrency(num) {
+            return '₹ ' + Math.round(num).toLocaleString('en-IN');
+        }
+
+        function calculateEmi() {
+            const P = parseFloat(calcAmount.value);
+            const annualRate = parseFloat(calcRate.value);
+            const r = (annualRate / 12) / 100; // Monthly interest rate
+            const n = parseFloat(calcTenure.value) * 12; // Total months
+
+            // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const totalPayment = emi * n;
+            const totalInterest = totalPayment - P;
+
+            // Update UI Labels
+            calcAmountInput.value = formatCurrency(P);
+            calcRateInput.value = annualRate.toFixed(2) + '%';
+            calcTenureInput.value = calcTenure.value + ' Years (' + n + ' Mo)';
+
+            resEmi.textContent = formatCurrency(emi);
+            resPrincipal.textContent = formatCurrency(P);
+            resInterest.textContent = formatCurrency(totalInterest);
+            resTotal.textContent = formatCurrency(totalPayment);
+            resTenureText.textContent = n;
+
+            // Bar ratio update
+            const principalPercent = (P / totalPayment) * 100;
+            const interestPercent = 100 - principalPercent;
+            barPrincipal.style.width = principalPercent + '%';
+            resRatio.textContent = Math.round(principalPercent) + '% / ' + Math.round(interestPercent) + '%';
+        }
+
+        // Attach slider listeners
+        calcAmount.addEventListener('input', calculateEmi);
+        calcRate.addEventListener('input', calculateEmi);
+        calcTenure.addEventListener('input', calculateEmi);
+
+        // Initial Calculation
+        calculateEmi();
+
+        // Modal Logic
+        const applyModal = document.getElementById('applyModal');
+        const modalLoanTypeTitle = document.getElementById('modalLoanTypeTitle');
+
+        function openApplyModal(loanType) {
+            modalLoanTypeTitle.textContent = loanType || 'Loan';
+            applyModal.classList.remove('hidden');
+        }
+
+        function closeApplyModal() {
+            applyModal.classList.add('hidden');
+        }
+
+        // Close modal on background click
+        applyModal.addEventListener('click', (e) => {
+            if (e.target === applyModal) {
+                closeApplyModal();
+            }
+        });
+
+        // Form Handlers
+        function handleApplySubmit(e) {
+            e.preventDefault();
+            alert('Aapka Loan Application safaltapurvak mil gaya hai! Humare representative jald hi aapse 9339769288 par sampark karenge.');
+            e.target.reset();
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            alert('Dhanyawad! Aapka application submit ho chuka hai. Humare customer manager aapko jald hi call karenge.');
+            closeApplyModal();
+            e.target.reset();
+        }
+
+        // Credit Score Calculator Simulation
+        function calculateCreditScore(e) {
+            e.preventDefault();
+            const formContainer = document.getElementById('creditFormContainer');
+            const resultContainer = document.getElementById('creditResultContainer');
+
+            formContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
